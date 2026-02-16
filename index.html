@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ebadal App</title>
+<style>
+body { font-family: Arial; background: #f2f2f2; text-align:center; padding:20px;}
+.container { background:#fff; padding:20px; border-radius:10px; max-width:400px; margin:auto; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+input, button { padding:10px; margin:5px; width:80%; }
+button { background:#28a745; color:white; border:none; cursor:pointer; border-radius:5px; font-weight:bold;}
+#result { margin-top:20px; font-weight:bold; font-size:18px;}
+.transaction { background:#e9ecef; padding:10px; border-radius:5px; margin:5px 0; font-size:14px;}
+.logo { width:80px; margin-bottom:10px;}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Ebadal App</h1>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Gold_Icon.png" alt="Logo" class="logo">
+<p>Calculator: EVC / Zaad</p>
+<input type="number" id="amount" placeholder="Amount to exchange">
+<button onclick="calculate()">Calculate</button>
+<div id="result"></div>
+
+<h3>Recent Transactions (Demo)</h3>
+<div class="transaction">50,000 EVC → 50,750 Zaad</div>
+<div class="transaction">30,000 EVC → 30,450 Zaad</div>
+<div class="transaction">20,000 EVC → 20,300 Zaad</div>
+
+<a href="https://wa.me/657000992" target="_blank">
+<button>Contact via WhatsApp</button>
+</a>
+</div>
+
+<script>
+function calculate() {
+    let amount = document.getElementById('amount').value;
+    if(amount <= 0) { alert("Enter a valid amount"); return; }
+    let fee = amount * 0.015; // 1.5% fee
+    let total = parseFloat(amount) + parseFloat(fee);
+    document.getElementById('result').innerHTML = 
+        `${amount} → ${total.toFixed(0)} Zaad (1.5% fee included)`;
+}
+</script>
+
+</body>
+</html>
