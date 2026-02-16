@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ebadal App - E-dahab to Zaad</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding: 50px;}
+    h1 { color: #333; }
+    input { padding: 10px; width: 200px; margin: 10px; }
+    button { padding: 10px 20px; cursor: pointer; }
+    #result { margin-top: 20px; font-weight: bold; }
+    .whatsapp { margin-top: 30px; display: inline-block; background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Ebadal App</h1>
+  <p>Convert E-dahab to Zaad + 1.5% Fee</p>
+  
+  <input type="number" id="edahab" placeholder="Enter E-dahab amount">
+  <button onclick="convert()">Convert</button>
+
+  <div id="result"></div>
+
+  <a class="whatsapp" href="https://wa.me/657000992" target="_blank">Chat with us on WhatsApp</a>
+
+  <script>
+    function convert() {
+      const edahab = document.getElementById('edahab').value;
+      if(edahab <= 0) {
+        document.getElementById('result').innerText = "Please enter a valid amount!";
+        return;
+      }
+      const fee = 1.5; // 1.5% fee
+      const zaadAmount = edahab * (1 - fee/100); // deduct fee
+      document.getElementById('result').innerText = 
+        `You will get: ${zaadAmount.toFixed(2)} Zaad (Fee: ${fee}%)`;
+    }
+  </script>
+</body>
+</html>
